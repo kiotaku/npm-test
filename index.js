@@ -17,4 +17,26 @@ app.get(['/path2', '/path3', '/path4'], (req, res) => {
   res.send('OK')
 })
 
+app.get('/json-response', (req, res) => {
+  res.send(JSON.stringify({ id: 1, name: 'My response' }))
+})
+
+app.post('/to-google', (req, res) => {
+  res.redirect('https://google.fi/')
+})
+
+app.get('/not-gonna-find', (req, res) => {
+  res.sendStatus(404)
+})
+
+app.get('/give-me-cookie', (req, res) => {
+  res.cookie('for', 'you')
+  res.send('OK')
+})
+
+app.delete('/cookie-for', (req, res) => {
+  res.clearCookie('for')
+  res.sendStatus(200)
+})
+
 app.listen(3000)
