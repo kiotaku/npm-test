@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/kiotaku/npm-test/issues"
   },
-  "homepage": "https://github.com/kiotaku/npm-test#readme"
+  "homepage": "https://github.com/kiotaku/npm-test#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
