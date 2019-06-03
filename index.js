@@ -39,4 +39,10 @@ app.delete('/cookie-for', (req, res) => {
   res.sendStatus(200)
 })
 
+const router = express.Router()
+router.get('/path', (req, res) => {
+  res.sendStatus(200)
+})
+app.use('/routed', router)
+
 app.listen(3000)
