@@ -1,0 +1,23 @@
+{
+  "name": "npm-test",
+  "version": "1.0.0",
+  "description": "Exercise Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiotaku/npm-test.git"
+  },
+  "keywords": [
+    "express",
+    "body-parser"
+  ],
+  "author": "Kioka Takumi",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/kiotaku/npm-test/issues"
+  },
+  "homepage": "https://github.com/kiotaku/npm-test#readme"
+}
