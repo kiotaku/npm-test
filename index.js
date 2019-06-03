@@ -45,4 +45,28 @@ router.get('/path', (req, res) => {
 })
 app.use('/routed', router)
 
+const isQueryParameterFooEqualsbar = (req, res, next) => {
+  if (req.query.foo === 'bar') {
+    next()
+  } else {
+    res.sendStatus(403)
+  }
+}
+
+app.use('/check-query-parameter', isQueryParameterFooEqualsbar)
+app.get('/check-query-parameter', (req, res) => {
+  res.sendStatus(200)
+})
+
+const delay1secSendReqest = (req, res, next) => {
+  setTimeout(() => {
+    next()
+  }, 1000)
+}
+
+app.use('/delay-request', delay1secSendReqest)
+app.get('/delay-request', (req, res) => {
+  res.sendStatus(200)
+})
+
 app.listen(3000)
