@@ -69,4 +69,6 @@ app.get('/delay-request', (req, res) => {
   res.sendStatus(200)
 })
 
+app.use(express.static('public'))
+
 app.listen(3000)
