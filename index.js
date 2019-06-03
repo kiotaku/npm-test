@@ -71,4 +71,9 @@ app.get('/delay-request', (req, res) => {
 
 app.use(express.static('public'))
 
+app.use((req, res, next) => {
+  console.log('file not found')
+  res.sendStatus(404)
+})
+
 app.listen(3000)
