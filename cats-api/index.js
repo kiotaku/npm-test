@@ -34,6 +34,12 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/cats', (req, res) => {
+  Cat.find().then(cats => {
+    res.send(cats)
+  })
+})
+
 app.post('/cats', (req, res) => {
   const { name, dateOfBirth, gender, color, weight } = req.body
   Cat.create({
