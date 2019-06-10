@@ -4,9 +4,16 @@ require('dotenv').config()
 
 const express = require('express')
 const mongoose = require('mongoose')
+const { Schema } = mongoose
 
 mongoose.Promise = Promise
 const app = express()
+
+const Cat = new Schema({
+  name: String,
+  dateOfBirth: { type: Date, max: Date.now() },
+  gender: { type: String, enum: ['male', 'female'] }
+})
 
 mongoose.connection(process.env.DB_URL, { useNewUrlParser: true }).then(() => {
   console.log('Connected successfully.')
