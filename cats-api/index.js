@@ -4,6 +4,7 @@ require('dotenv').config()
 
 const express = require('express')
 const bodyParser = require('body-parser')
+const moment = require('moment')
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 
@@ -35,7 +36,19 @@ app.get('/', (req, res) => {
 })
 
 app.get('/cats', (req, res) => {
-  Cat.find().then(cats => {
+  const { gender, age, weight } = req.query
+  let promise = gender ? Cat.find({ gender }) : Cat.find()
+  promise = age ? 
+      promise
+        .where('dateOfBirth')
+        .lt(moment().subtract(age, 'years').valueOf()) : 
+      promise
+  promise = weight ?
+      promise
+        .where('weight')
+        .gt(weight) : 
+      promise
+  promise.then(cats => {
     res.send(cats)
   })
 })
